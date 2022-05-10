@@ -7,10 +7,11 @@
   ethers,
 } from "forta-agent";
 import agent, {
-  ERC20_TRANSFER_EVENT,
-  TETHER_ADDRESS,
-  TETHER_DECIMALS,
+  nethermind_deployer,
+  forta_bot_registry,
+  forta_create_agent
 } from "./agent";
+import assert from "assert";
 
 describe("high tether transfer agent", () => {
   let handleTransaction: HandleTransaction;
@@ -21,7 +22,7 @@ describe("high tether transfer agent", () => {
   });
 
   describe("handleTransaction", () => {
-    it("returns empty findings if there are no Tether transfers", async () => {
+    it("returns empty findings if there are no deployments from nethermind", async () => {
       mockTxEvent.filterLog = jest.fn().mockReturnValue([]);
 
       const findings = await handleTransaction(mockTxEvent);

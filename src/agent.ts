@@ -32,7 +32,7 @@ const handleTransaction : HandleTransaction = async (tx : TransactionEvent) => {
         Finding.fromObject({
           name:"nethermind deployer detected",
           description:"(${nether_deployer}) deployed a forta agent",
-          alertId: 'FORTA-7',
+          alertId: 'FORTA-1',
           type: FindingType.Info,
           severity: FindingSeverity.Info,
           metadata: {
